@@ -71,7 +71,7 @@ public struct Page {
             }
         }
         self.content = {
-            UIHostingController(rootView: content)
+            RestrictedUIHostingController(rootView: content)
         }
     }
 
@@ -116,7 +116,7 @@ public struct Page {
             }
         }
         self.content = {
-            UIHostingController(rootView: content)
+            RestrictedUIHostingController(rootView: content)
         }
     }
 
@@ -161,7 +161,7 @@ public struct Page {
             }
         }
         self.content = {
-            UIHostingController(rootView: content)
+            RestrictedUIHostingController(rootView: content)
         }
     }
 }

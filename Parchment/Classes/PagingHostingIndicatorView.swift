@@ -1,5 +1,5 @@
-import UIKit
 import SwiftUI
+import UIKit
 
 /// A custom `UICollectionViewReusableView` subclass used to display a
 /// view that indicates the currently selected cell. You can subclass
@@ -12,7 +12,7 @@ final class PagingHostingIndicatorView: PagingIndicatorView {
     override init(frame: CGRect) {
         let configuration = PagingIndicatorConfiguration(backgroundColor: .clear)
         let rootView = PagingIndicator(configuration: configuration)
-        self.hostingController = UIHostingController(rootView: rootView)
+        hostingController = RestrictedUIHostingController(rootView: rootView)
 
         super.init(frame: frame)
 
@@ -22,6 +22,7 @@ final class PagingHostingIndicatorView: PagingIndicatorView {
         clipsToBounds = false
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -40,7 +41,7 @@ final class PagingHostingIndicatorView: PagingIndicatorView {
         }
     }
 
-    public override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+    override public func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         if let attributes = layoutAttributes as? PagingIndicatorLayoutAttributes {
             let configuration = PagingIndicatorConfiguration(
                 backgroundColor: Color(attributes.backgroundColor ?? .clear)

@@ -60,7 +60,7 @@ final class PageContentView<Content: View>: UIView, UIContentView {
 
     init(configuration: PageContentConfiguration<Content>) {
         self.configuration = configuration
-        self.hostingController = UIHostingController(rootView: configuration.content)
+        self.hostingController = RestrictedUIHostingController(rootView: configuration.content)
         self.margins = configuration.margins
         super.init(frame: .zero)
         configure()

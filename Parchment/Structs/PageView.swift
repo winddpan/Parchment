@@ -169,7 +169,7 @@ public struct PageView: View {
         self.items = items
         self.content = { item in
             let content = content(item as! Item)
-            return UIHostingController(rootView: content)
+            return RestrictedUIHostingController(rootView: content)
         }
     }
 
